@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/photo/photo",
+    "pages/about/about",
+    "pages/edit/edit",
+    "pages/baidu/baidu"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ECB1AC",
+    "navigationBarTitleText": "智能阿Hung",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": false 
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "语音翻译",
+      "iconPath": "/images/icons8-medium_volume1.png",
+      "selectedIconPath": "/images/icons8-medium_volume.png"
+    },
+    {
+        "pagePath": "pages/logs/logs",
+        "text": "保存记录",
+        "iconPath": "/images/icons8-save_archive1.png",
+        "selectedIconPath": "/images/icons8-save_archive.png"
+    },
+    {
+        "pagePath": "pages/about/about",
+        "text": "用前必读",
+        "iconPath": "/images/icons8-about1.png",
+        "selectedIconPath": "/images/icons8-about.png"
+    }]
+  },
+  "plugins": {
+        "WechatSI": {
+            "version": "0.1.0",
+            "provider": "wx069ba97219f66d99"
+        }
+    }
+}

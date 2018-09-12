@@ -1,0 +1,5 @@
+ <view class="container">
+    <button bindtap='a'>取照</button>
+    <button bindtap='ocr'>翻译</button>
+ 
+ </view>

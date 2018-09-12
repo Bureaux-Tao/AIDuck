@@ -1,0 +1,47 @@
+page {
+    background-image: url("https://ws1.sinaimg.cn/large/8e278454gy1fur0mk768nj220j3kx13s.jpg");
+    background-size: 120% 120%;     
+}
+.group{
+    margin-top:45rpx;
+    margin-bottom: 50rpx;
+    margin-left: 25rpx;
+    margin-right: 25rpx;
+    height: 130rpx;
+    border-radius: 5rpx;
+    -webkit-border-radius: 20rpx;
+    -moz-border-radius: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4rpx 4rpx 4rpx 4rpx #888
+}
+.group-text{
+    height:50rpx;
+    font-size: 35rpx;
+}
+.icon {
+    height: 55rpx;
+    width: 60rpx;
+    margin: 15rpx;
+}
+.tips {
+    position: absolute;
+    top:680rpx;
+    left:150rpx;
+}
+.tips-img {
+    height: 400rpx;
+    width: 550rpx;
+    z-index: 1;
+}
+.tips-text {
+    font-size: 52rpx;
+    position: relative;
+    z-index: 2;
+    top: -315rpx;
+    left: 115rpx;
+}
+.container {
+    padding-bottom: 30rpx;
+}

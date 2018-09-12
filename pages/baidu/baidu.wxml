@@ -1,0 +1,1 @@
+<web-view src='{{mes}}#wechat_redirect'></web-view>

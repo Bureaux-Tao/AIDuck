@@ -1,0 +1,15 @@
+<view class='container'>
+    <!-- <button bindtap='test'>test</button> -->
+    <view class="group"wx:for="{{recordList}}" wx:for-item="item" data-id="{{index}}" style='background-color: {{timeName[index].size}} 'bindtap='select'>
+        <image src='/images/icons8-tape_drive.png' class="icon"></image>
+        <textarea disabled='{{true}}' class='group-text'>{{timeName[index].createTime}}</textarea>
+    </view>
+    <view class='tips' wx:if="{{isis}}">
+        <image src='/images/tips.png' class="tips-img"></image>
+        <view class="tips-text">
+            <view>一个录音都没有</view>
+            <view>试试长按磁带⑧</view>
+        </view>
+
+    </view>
+</view>

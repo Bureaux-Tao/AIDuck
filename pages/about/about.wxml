@@ -1,0 +1,61 @@
+<view class="container">
+    <image src='/images/icon.png' class="a"></image>
+    <view class="b">智能阿Hung v1.0.3</view>
+
+    <button bindtap='Auth' class='q1'>授权程序录音</button>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+    <button class='q2'>选择搜索引擎</button>  
+  </picker>
+    <view class="qy">
+      当前搜索引擎：{{array[index]}}
+    </view>
+    <view class="c">
+        <view class="c-1">功能简介</view>
+        <view class="c-3">1. 轻拍[Record]进行纯录音</view>
+        <view class="c-4">2. 停止、播放、暂停与录音机一致</view>
+        <view class="c-5">3. 按住「中文听写」/「英文听写」进行中/英文听写, 松开显示内容及其翻译</view>
+        <view class="c-6">4. 轻拍[读出翻译]读出对应译文</view>
+        <view class="c-7">5. 翻译完后轻拍[start]播放之前录音</view>
+    </view>
+
+    <view class="d">
+        <view class="d-1">据说99%的人都不知道有这些功能</view>
+        <view class="d-3">1. 长按磁带保存</view>
+        <view class="d-4">2. 点击文字选择编辑文字内容进行再翻译、复制听写文字、翻译文字、搜索等操作</view>
+        <view class="d-5">3. 点击[保存记录]中的记录播放录音、查看录音信息或删除录音</view>
+    </view>
+
+    <view class="e">
+        <view class="e-1">注意事项</view>
+        <view class="e-3">1. 首次切换及时翻译语言可能会延时, 请再次听写</view>
+        <view class="e-4">2. 如果初次未授予录音权限可能会导致错误, 请在本页面最下面重新授权</view>
+        <view class="e-5">3. 由于微信对个人开发者的限制, 搜索功能无法实现, 有待微信团队日后增加对开发者的API使用权限</view>
+    </view>
+
+    <view class="f">
+        <view class="f-1">联系我</view>
+        <view class="f-3">Bureaux Tao</view>
+        <view class="f-4">邮箱:<a url="taosh.dev@gmail.com">taosh.dev@gmail.com</a></view>
+        <view class="f-5">微信:ab690500385</view>
+        <view class="f-6">企鹅号:690500385</view>
+    </view>
+
+    <view class="g">
+        <view class="g-1">Github源码:</view>
+        <a class="g-1">https://github.com/Bureaux-Tao/IntelligentAHung</a>
+        <view class="g-2">欢迎Pull Request,提Issus</view>
+        <view class="g-3">将开源进行到底!</view>
+        <view class="g-4">喜欢吗?喜欢的话可以点击识别二维码请开发者喝一瓶饮料</view>
+        <view>(˶‾ ⁻̫ ‾˵)</view>
+    </view>
+    
+    <image src='/images/F26B279C2668F7D6861DEF1136A5A650-228.jpg' class="s" bindtap='pre'></image>
+
+
+    <view class="h">
+        <view class="h-1">请勿将此开源项目用作商业通途</view>
+        <view class="h-2">本项目最终解释权归属作者所有</view>
+        <view class="h-3"></view>
+    </view>
+    <!-- <button bindtap='test'>test</button> -->
+</view>

@@ -1,0 +1,200 @@
+page {
+    background-image: url("https://ws1.sinaimg.cn/large/8e278454gy1fur0prf3lvj20ow18gwj5.jpg");
+    background-size: 100% 100%;     
+    font-family:"Helvetica",Georgia,Serif;
+}
+.show-iconView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -450rpx;
+}
+.show-iconImage-1 {
+    height: 155rpx;
+    width: 155rpx;
+    position: relative;
+    top: -363rpx;
+    left: -155rpx;
+    z-index: 1;
+    border:5rpx solid #000;
+    border-radius: 20rpx;
+    -webkit-border-radius: 200rpx;
+    -moz-border-radius: 200rpx;
+}
+.show-iconImage-2 {
+    height: 155rpx;
+    width: 155rpx;
+    position: relative;
+    top: -590rpx;
+    left: 153rpx;
+    z-index: 1;
+    border:70rpx solid #000;
+    border-radius: 20rpx;
+    -webkit-border-radius: 200rpx;
+    -moz-border-radius: 200rpx;
+}
+.tape {
+    width: 740rpx;
+    height: 482rpx;
+    margin-top: 40rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    position: relative;
+    z-index: 2;
+    opacity:0.97;
+    margin-bottom: 20rpx;
+}
+.Buttom {
+    display: flex;
+    justify-content: center;
+}
+.Buttum-each {
+    margin-top: 69rpx;  
+    height: 100rpx;
+    width: 168rpx;
+    border: 1rpx solid black;
+    background: #ddd;
+    box-shadow: 4rpx 4rpx 4rpx 4rpx #575757
+}
+#Buttum-record {
+    border-right: rpx solid black;
+    border-radius: 20rpx 0rpx 0rpx 20rpx;
+}
+
+#Buttum-stop {
+    border-right: 1rpx solid black;
+    border-left: 1rpx solid white;
+}
+#Buttum-play {
+    border-right: 1rpx solid black;
+    border-left: 1rpx solid white;
+}
+#Buttum-save {
+    border-left: 1rpx solid white;
+    border-radius: 0rpx 20rpx 20rpx 0rpx;
+}
+.Buttum-icon-image {
+    height: 30rpx;
+    width: 30rpx;
+    margin-top: 6rpx;
+}
+.Buttum-icon-text {
+    font-size: 30rpx;
+    margin-left: 7rpx;
+    font-weight:500;
+    margin-top: 2rpx;
+}
+.Buttum-icon-each {
+    display: flex;
+    margin-left: 20rpx;
+    margin-right: 32rpx;
+}
+.Buttum-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: -55rpx;
+}
+#a1 {
+    margin-left: 20rpx;
+}
+#a2 {
+    margin-left: 20rpx;
+}
+#a3 {
+    margin-left: 20rpx;
+}
+#a4 {
+    margin-left: 30rpx;
+}
+button {
+    margin-top: 200rpx;
+}
+.recognizeResult{
+    padding-top: 1rpx;
+    margin: auto;
+    height: 250rpx;
+    width: 690rpx;
+    background: -webkit-linear-gradient(top,#EA8A55,#ECA972);
+    border-radius: 10rpx;
+    -webkit-border-radius: 30rpx;
+    -moz-border-radius: 30rpx;
+    box-shadow: 6rpx 6rpx 6rpx 6rpx #888888;
+}
+.recognizeResult-text-1 {
+    margin-top: 30rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-bottom: 15rpx;
+    color: #663B23;
+    font-size: 28rpx;
+    height: 80rpx;
+    width: 620rpx;
+    overflow-y:auto;
+    overflow-x: scroll;
+    max-height: 200rpx;
+}
+.recognizeResult-text-2 {
+    margin-top: 15rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-bottom: 30rpx;
+    color: #663B23;
+    font-size: 28rpx;
+    height: 80rpx;
+    width: 620rpx;
+    overflow-y:auto;
+    overflow-x: scroll;
+    max-height: 200rpx;
+}
+#cn{
+    margin-top: 60rpx;
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 30rpx;
+    -webkit-border-radius: 300rpx;
+    -moz-border-radius: 300rpx;
+    margin-left: 35rpx;
+    margin-right: 35rpx;
+}
+.trans-group {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+#en{
+    margin-top: 60rpx;
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 30rpx;
+    -webkit-border-radius: 300rpx;
+    -moz-border-radius: 300rpx;
+    margin-left: 35rpx;
+    margin-right: 35rpx;
+}
+#voi{
+    margin-top: 60rpx;
+    height: 150rpx;
+    width: 150rpx;
+    border-radius: 30rpx;
+    -webkit-border-radius: 300rpx;
+    -moz-border-radius: 300rpx;
+    margin-left: 35rpx;
+    margin-right: 35rpx;
+}
+.trans-group-text{
+    display: flex; 
+    font-size: 25rpx;
+    margin-bottom: 30rpx;
+}
+.aaa {
+    margin-left: 115rpx;
+    margin-top: 25rpx;
+}
+.bbb{
+    margin-top: 25rpx;
+    margin-left: 122rpx;
+}
+.ccc{
+    margin-top: 21rpx;
+    margin-left: 120rpx;
+}
