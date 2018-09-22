@@ -34,7 +34,11 @@ App({
     })
       wx.setStorage({
           key: 'engine',
-          data: 'https://www.baidu.com/s?wd=',
+          data: 'CHN_ENG',
+      })
+      wx.setStorage({
+          key: 'isAccu',
+          data: false,
       })
   },
   globalData: {

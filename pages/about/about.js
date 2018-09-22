@@ -6,8 +6,9 @@ Page({
   data: {
       a: ['https://ws1.sinaimg.cn/large/8e278454gy1fur3std6hyj20oa0o976a.jpg'],
       engine: "",
-      array: ['百度', '必应', '微博', '淘宝', '知乎', '位置', '图片', '优酷', '爱奇艺'],
+      array: ['中英文混合', '英文', '葡萄牙语', '法语', '德语', '意大利语', '西班牙语', '俄语', '日语','韩语'],
       index: 0,
+      dis:false
   },
   
 
@@ -95,11 +96,6 @@ Page({
         })
     },
 
-    test:function() {
-        var a="1234567890"
-        console.log(a.substr(a.length-4,a.length-1));
-    },
-
     pre:function() {
         
         wx.previewImage({
@@ -119,63 +115,70 @@ Page({
                 console.log('picker发送选择改变，携带值为', e.detail.value)
                 wx.setStorage({
                     key: 'engine',
-                    data: 'https://www.baidu.com/s?wd=',
+                    data: 'CHN_ENG',
                 })
                 break;
             case '1':
                 console.log('picker发送选择改变，携带值为', e.detail.value)
                 wx.setStorage({
                     key: 'engine',
-                    data: 'https://cn.bing.com/search?q=',
+                    data: 'ENG',
                 })
                 break;
             case '2':
                 console.log('picker发送选择改变，携带值为', e.detail.value)
                 wx.setStorage({
                     key: 'engine',
-                    data: 'http://s.weibo.com/weibo/',
+                    data: 'POR',
                 })
                 break;
             case '3':
                 console.log('picker发送选择改变，携带值为', e.detail.value)
                 wx.setStorage({
                     key: 'engine',
-                    data: 'https://s.taobao.com/search?q=',
+                    data: 'FRE',
                 })
                 break;
             case '4':
                 console.log('picker发送选择改变，携带值为', e.detail.value)
                 wx.setStorage({
                     key: 'engine',
-                    data: 'https://www.zhihu.com/search?q=',
+                    data: 'GER',
                 })
                 break;
             case '5':
                 console.log('picker发送选择改变，携带值为', e.detail.value)
                 wx.setStorage({
                     key: 'engine',
-                    data: 'https://www.amap.com/search?query=',
+                    data: 'ITA',
                 })
                 break;
             case '6':
                 console.log('picker发送选择改变，携带值为', e.detail.value)
                 wx.setStorage({
                     key: 'engine',
-                    data: 'https://www.flickr.com/search/?text=',
+                    data: 'SPA',
                 })
                 break;
             case '7':
                 console.log('picker发送选择改变，携带值为', e.detail.value)
                 wx.setStorage({
                     key: 'engine',
-                    data: 'https://www.soku.com/search_video/q_',
+                    data: 'RUS',
                 })
                 break;
             case '8':
                 console.log('picker发送选择改变，携带值为', e.detail.value)
                 wx.setStorage({
                     key: 'engine',
-                    data: 'https://so.iqiyi.com/so/q_',
+                    data: 'JAP',
+                })
+                break;
+            case '9':
+                console.log('picker发送选择改变，携带值为', e.detail.value)
+                wx.setStorage({
+                    key: 'engine',
+                    data: 'KOR',
                 })
                 break;
         }
@@ -192,7 +195,52 @@ Page({
         })
     },
 
-    // test:function() {
-        
-    // }
+    accu:function () {
+        var that=this
+        wx.showActionSheet({
+            itemList: ['通用识别(支持多语言)','高精度识别(只支持中英文)'],
+            success: function (e) {
+                if (e.tapIndex == 0) {
+                    wx.setStorage({
+                        key: 'isAccu',
+                        data: false,
+                        success:(res)=> {
+                            console.log(res);
+                            that.setData({
+                                dis: false
+                            })
+                        },fail:(res)=> {
+                            console.log(res);
+                        },complete:(res)=>{}
+                    })
+                }
+                if (e.tapIndex == 1) {
+                    wx.setStorage({
+                        key: 'isAccu',
+                        data: true,
+                        success:(res)=> {
+                            console.log(res);
+                            that.setData({
+                                dis:true
+                            })
+                        },fail:(res)=> {
+                            console.log(res);
+                        },complete:(res)=>{}
+                    })
+                }
+            }
+        })
+    },
+
+    back: function () {
+        wx.redirectTo({
+            url: '/pages/a/a',
+        })
+    },
+
+    contact:function() {
+        wx.previewImage({
+            urls: ["https://ws1.sinaimg.cn/large/8e278454gy1fviazyv0yxj20ih0iuwgu.jpg"],
+        })
+    }
 })

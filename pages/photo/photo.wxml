@@ -1,5 +1,22 @@
  <view class="container">
-    <button bindtap='a'>取照</button>
-    <button bindtap='ocr'>翻译</button>
- 
+    <image src='https://ws1.sinaimg.cn/large/8e278454gy1fvf83p053dj20lo0czait.jpg' class="tit"></image>
+    <view class="img-container">
+        <image src='{{image}}' class="img"></image> 
+    </view>
+    <image src='{{btn}}' class="btn" bindtap='btntap'></image>
+    <view class='tip'>拍照/选照</view>
+    <!-- <view class='area' bindtap='a'></view> -->
+    <view class='swit-container'>
+        <view id='a'>
+            <view>印刷</view>
+            <view>识别</view>
+        </view>
+        <image src='{{swit}}' class="switch" bindtap='swi'></image>
+        <view id='b'>
+            <view>手写</view>
+            <view>识别</view>
+        </view>
+    </view>
+    <view id='tip2'>更改印刷体识别语言请在设置中更改</view>
+    <view id='tip3'>手写体识别只支持中英文</view>
  </view>

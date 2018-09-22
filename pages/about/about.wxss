@@ -11,12 +11,16 @@ page {
 }
 .a {
     margin-top: 140rpx;
-    height: 250rpx;
-    width: 250rpx;
+    height: 270rpx;
+    width: 270rpx;
+    border-radius: 20rpx;
+    -webkit-border-radius: 200rpx;
+    -moz-border-radius: 200rpx;
 }
 .b {
     margin-top: 50rpx;
     font-size: 50rpx;
+    
 }
 .c {
     margin: 50rpx;
@@ -24,6 +28,7 @@ page {
 }
 .c-1 {
     font-size: 40rpx;
+    margin-top: 60rpx;
 }
 .d {
     margin: 50rpx;
@@ -57,7 +62,7 @@ a {
 }
 .q1 {
    background-color: #34A853;
-   margin-top: 150rpx;
+   margin-top: 140rpx;
    margin-left: 100rpx;
    margin-right: 100rpx;
    margin-bottom: 15rpx;
@@ -104,7 +109,51 @@ a {
 }
 .qy {
     margin-top: 10rpx;
-    margin-bottom: 60rpx;
     text-align: center;
     font-size: 25rpx;
+}
+.q3 {
+    background-color: #34A853;
+   margin-top: 5rpx;
+   margin-left: 100rpx;
+   margin-right: 100rpx;
+   margin-bottom: 5rpx;
+   border-radius: 20rpx;
+    -webkit-border-radius: 20rpx;
+    -moz-border-radius: 20rpx;
+    width: 570rpx;
+    color: white
+}
+
+.q4 {
+    background-color: #34A853;
+   margin-top: 5rpx;
+   margin-left: 100rpx;
+   margin-right: 100rpx;
+   margin-bottom: 15rpx;
+   border-radius: 20rpx;
+    -webkit-border-radius: 20rpx;
+    -moz-border-radius: 20rpx;
+    width: 570rpx;
+    color: white
+}
+.ccc-1 {
+    font-size: 35rpx;
+    margin-top: 20rpx;
+}
+.ccc-2 {
+    font-size: 35rpx;
+    margin-top: 20rpx;
+}
+.contact {
+    background-color: #34A853;
+   margin-top: 5rpx;
+   margin-left: 100rpx;
+   margin-right: 100rpx;
+   margin-bottom: 5rpx;
+   border-radius: 20rpx;
+    -webkit-border-radius: 20rpx;
+    -moz-border-radius: 20rpx;
+    width: 570rpx;
+    color: white
 }

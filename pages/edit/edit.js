@@ -81,7 +81,21 @@ Page({
           prevPage.test(tran);
       }
       else {
-          //未完成
+          var that=this
+          wx.getStorage({
+              key: 'List',
+              success: function(res) {
+                  var a=res.data
+                  a[that.data.int].name=tran
+                  wx.setStorage({
+                      key: 'List',
+                      data: a,
+                  })
+                  prevPage.onShow()
+              },fail:(res)=> {
+                  console.log(res);
+              },complete:(res)=>{}
+          })
           
           
       }

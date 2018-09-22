@@ -5,6 +5,23 @@ const app = getApp()
 var a
 const innerAudioContext = wx.createInnerAudioContext()
 var getTime = wx.createInnerAudioContext()
+// var List=[]
+
+Array.prototype.remove = function (obj) {
+    for (var i = 0; i < this.length; i++) {
+        var temp = this[i];
+        if (!isNaN(obj)) {
+            temp = i;
+        }
+        if (temp == obj) {
+            for (var j = i; j < this.length; j++) {
+                this[j] = this[j + 1];
+            }
+            this.length = this.length - 1;
+        }
+    }
+}
+
 Page({
 
     /**
@@ -34,59 +51,55 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function (event) {
-        //获取保存文件
-        wx.getSavedFileList({
-            success: (res) => {
+
+        var that=this
+        wx.getStorage({
+            key: 'List',
+            success: function(res) {
                 console.log(res);
-                this.setData({
-                    recordList: res.fileList,
+                that.setData({
+                    recordList: res.data,
                 })
 
-                //改名
-                a = this.data.recordList
-                for (var id = 0; id < this.data.recordList.length; id++) {
-                    var timeStamp = this.data.recordList[id].createTime
-                    console.log(timeStamp);
-                    a[id].createTime = this.getLocalTime(this.data.recordList[id].createTime) + "保存的录音"
-                    console.log(a[id].createTime);
+                a = that.data.recordList
+                for (var id = 0; id < that.data.recordList.length; id++) {
                     // 彩红颜色
                     if (id % 7 == 0) {
-                        a[id].size = "#FF0050"
+                        a[id].color = "#FF0050"
                     } else if (id % 7 == 1) {
-                        a[id].size = "#F0883B"
+                        a[id].color = "#F0883B"
                     } else if (id % 7 == 2) {
-                        a[id].size = "#FFDF46"
+                        a[id].color = "#FFDF46"
                     } else if (id % 7 == 3) {
-                        a[id].size = "#77DF7D"
+                        a[id].color = "#77DF7D"
                     } else if (id % 7 == 4) {
-                        a[id].size = "#538AFF"
+                        a[id].color = "#538AFF"
                     } else if (id % 7 == 5) {
-                        a[id].size = "#71FBFD"
+                        a[id].color = "#71FBFD"
                     } else if (id % 7 == 6) {
-                        a[id].size = "#D794E8"
+                        a[id].color = "#D794E8"
                     }
-
                 }
 
-                if (res.fileList.length == 0) {
-                    this.setData({
+                if (a.length == 0) {
+                    that.setData({
                         isis: true
                     })
                 } else {
-                    this.setData({
+                    that.setData({
                         isis: false
                     })
                 }
 
-
-                this.setData({
+                that.setData({
                     timeName: a
                 })
-            }, fail: (res) => {
+                
+            },fail:(res)=> {
                 console.log(res);
-            },
-            complete: (res) => { }
+            },complete:(res)=>{}
         })
+
     },
 
     /**
@@ -137,22 +150,19 @@ Page({
         var id = event.currentTarget.dataset.id;
         console.log("id:" + id);
         wx.showActionSheet({
-            itemList: ["播放","查看信息", "删除"],
+            itemList: ["播放","查看信息","重命名","删除"],
             success: function (e) {
                 if (e.tapIndex == 0) {
                     console.log("id:" + id);
                     innerAudioContext.stop();
-                    innerAudioContext.src = that.data.recordList[id].filePath;
+                    innerAudioContext.src = that.data.recordList[id].path;
                     innerAudioContext.play()
-
-                    //获取时长
-                    a[id].filePath = innerAudioContext.duration
-                    console.log("a[filePath]:" + a[id].filePath);
                 }
+
                 if (e.tapIndex == 1) {
-                    innerAudioContext.src = that.data.recordList[id].filePath;
+                    innerAudioContext.src = that.data.recordList[id].path;
                     console.log("time:" + innerAudioContext.duration);
-                    var show = that.data.timeName[id].createTime + "     录音时长: " + innerAudioContext.duration + " s" + "     「Tips:O秒为不到一秒哦」"
+                    var show = "录音时间:"+that.getLocalTime(that.data.recordList[id].createTime) + " / 录音时长: " + innerAudioContext.duration + " s /" + " 「Tips:O秒为不到一秒哦」"
                     wx.showModal({
                         title: '录音信息',
                         content: show,
@@ -160,32 +170,23 @@ Page({
                         confirmText: "我知道了"
                     })
                 }
+
                 if (e.tapIndex == 2) {
-                    wx.getSavedFileList({
-                        success: function (res) {
-                            if (res.fileList.length > 0) {
-                                wx.removeSavedFile({
-                                    filePath: res.fileList[id].filePath,
-                                    success: (res) => {
-                                        console.log(res)
-                                        that.onShow()
-                                    }, fail: (res) => {
-                                        console.log(res)
-                                    }, complete: (res) => { }
-                                })
-                            }
-                        }
+                    var changed=that.data.timeName[id].name
+                    wx.navigateTo({
+                        url: "/pages/edit/edit?Text="+changed + "&int=" + id,
                     })
+                }
+
+                if (e.tapIndex == 3) {
+                    a.remove(id)
+                    wx.setStorage({
+                        key: 'List',
+                        data: a,
+                    })
+                    that.onShow()
                 }
             }
         })
-    },
-
-    view: function (id) {
-
-    },
-
-    rename: function (id) {
-
     }
 })

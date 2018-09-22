@@ -1,0 +1,67 @@
+page {
+    background-image: url("https://ws1.sinaimg.cn/large/8e278454gy1fvf6x32l3oj20v91ilk1i.jpg");
+    background-size: 100% 100%;     
+    /* font-family:"Helvetica",Georgia,Serif; */
+}
+.container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+.btn {
+    height: 120rpx;
+    width: 240rpx;
+    margin-top: 60rpx;
+}
+.tit {
+    height: 230rpx;
+    width: 440rpx;
+}
+.img {
+    height: 500rpx;
+    width: 400rpx;
+}
+.img-container {
+    height: 500rpx;
+    width: 400rpx;
+    margin-top: 55rpx;
+}
+.switch {
+    height: 65rpx;
+    width: 190rpx;
+    
+}
+.swit-container{
+    margin-top: 40rpx;
+    display: flex; 
+    margin-bottom: 40rpx;
+    justify-content: center;
+    align-items: center;
+}
+#a {
+    font-size: 22rpx;
+    margin-right: 50rpx;
+    color: whitesmoke
+}
+#b {
+    font-size: 22rpx;
+    margin-left: 50rpx;
+    color: whitesmoke
+}
+.tip {
+    margin-top: 5rpx;
+    color: whitesmoke;
+    font-size: 20rpx;
+}
+#tip2 {
+    margin-top: 50rpx;
+    font-size: 20rpx;
+    color: whitesmoke
+}
+#tip3 {
+    margin-top: 2rpx;
+    font-size: 20rpx;
+    margin-bottom: 30rpx;
+    color: whitesmoke
+}

@@ -18,7 +18,7 @@ page {
 }
 .group-text{
     height:50rpx;
-    font-size: 35rpx;
+    font-size: 36rpx;
 }
 .icon {
     height: 55rpx;

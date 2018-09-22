@@ -1,0 +1,27 @@
+<view class='fun-container'>
+    <view class='fun-container-icon'>
+        <image src='/images/icons8-copy.png' class="icon" id='a' bindtap='Copy'></image>
+        <image src='/images/icons8-erase.png' class="icon" id='b' bindtap='Erase'></image>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <image src='/images/icons8-great_britain.png' class="icon" id='c'></image>
+        </picker>
+        <image src='/images/icons8-china.png' class="icon" id='d' bindtap='Check'></image>
+        <image src='/images/icons8-undo.png' class="icon" id='e' bindtap='Undo'></image>
+    </view>   
+
+    <view class='fun-container-tips'>
+        <view class='tips' id='aa'>复制</view>
+        <view class='tips' id='bb'>去换行</view>
+        <view class='tips' id='cc'>翻译</view>
+        <view class='tips' id='dd'>校对</view>
+        <view class='tips' id='ee'>原文</view>
+    </view> 
+</view>
+
+<image src='{{src}}'  wx:if="{{!autoHeight}}" class="img" mode='widthFix'></image>
+<view class='container'>
+    
+    <textarea value='{{Text}}' placeholder="输入内容鸭" adjust-position="{{true}}" show-confirm-bar='{{true}}' bindconfirm="OK" class="ta" maxlength='-1' auto-height='{{autoHeight}}' bindblur='OK'></textarea>
+    
+</view>
+

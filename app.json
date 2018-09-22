@@ -1,16 +1,18 @@
 {
   "pages":[
+    "pages/a/a",
     "pages/index/index",
-    "pages/logs/logs",
     "pages/photo/photo",
+    "pages/logs/logs",
     "pages/about/about",
     "pages/edit/edit",
+    "pages/ocr/ocr",
     "pages/baidu/baidu"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#ECB1AC",
-    "navigationBarTitleText": "智能阿Hung",
+    "navigationBarTitleText": "识别鸭",
     "navigationBarTextStyle":"black",
     "enablePullDownRefresh": false 
   },
@@ -22,6 +24,12 @@
       "selectedIconPath": "/images/icons8-medium_volume.png"
     },
     {
+        "pagePath": "pages/photo/photo",
+        "text": "文字识别",
+        "iconPath": "/images/icons8-scanner-filled.png",
+        "selectedIconPath": "/images/icons8-scanner.png"
+    },
+    {
         "pagePath": "pages/logs/logs",
         "text": "保存记录",
         "iconPath": "/images/icons8-save_archive1.png",
@@ -29,7 +37,7 @@
     },
     {
         "pagePath": "pages/about/about",
-        "text": "用前必读",
+        "text": "设置",
         "iconPath": "/images/icons8-about1.png",
         "selectedIconPath": "/images/icons8-about.png"
     }]

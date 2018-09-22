@@ -13,6 +13,12 @@ const bgm = wx.createInnerAudioContext()
 var _loadImagePathIndex = 0;
 var _animationIntervalId;
 var dirc = 1;
+var List=[]
+var json={
+    name:"",
+    path:"",
+    createTime:""
+}
 const options = {
     duration: 60000,
     sampleRate: 16000,
@@ -74,10 +80,7 @@ Page({
         fgx: false,
         filter: "",
         isCN: true,
-        status:1,
-
-        array: ['中国', '美国', '巴西', '日本'],
-        index: 0,
+        status:1
 
     },
 
@@ -102,6 +105,14 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+
+        wx.getStorage({
+            key: 'List',
+            success: function (res) {
+                List=res.data
+             },
+        })
+
         _animation = wx.createAnimation({
             duration: _ANIMATION_TIME,
             timingFunction: 'linear', // "linear","ease","ease-in","ease-in-out","ease-out","step-start","step-end"
@@ -149,6 +160,13 @@ Page({
 
     Record: function () {
         if (this.data.Switch1 == false && this.data.Switch3 == false) {
+            wx.vibrateShort({
+                success: (res) => {
+                    console.log(res);
+                }, fail: (res) => {
+                    console.log(res);
+                }, complete: (res) => { }
+            })
             dirc = -1;
             console.log("l1");
             this.setData({
@@ -192,6 +210,13 @@ Page({
 
     Stop: function () {
         if (this.data.tempVoice != "" || this.data.Switch1 != false) {
+            wx.vibrateShort({
+                success: (res) => {
+                    console.log(res);
+                }, fail: (res) => {
+                    console.log(res);
+                }, complete: (res) => { }
+            })
             console.log("l2");
             /**************代码区***************/
             if (this.data.Switch1 == true) {
@@ -281,6 +306,13 @@ Page({
     },
     Start: function () {
         if (this.data.Switch3 == false && this.data.Switch1 == false && this.data.tempVoice != "") {
+            wx.vibrateShort({
+                success: (res) => {
+                    console.log(res);
+                }, fail: (res) => {
+                    console.log(res);
+                }, complete: (res) => { }
+            })
             bgm.play();
             innerAudioContext.src = this.data.tempVoice;
             dirc = 1;
@@ -332,6 +364,13 @@ Page({
 
     Pause: function () {
         if (this.data.Switch3 == false && this.data.Switch1 == true && this.data.Switch2 == false && this.data.Switch4 == false) {
+            wx.vibrateShort({
+                success: (res) => {
+                    console.log(res);
+                }, fail: (res) => {
+                    console.log(res);
+                }, complete: (res) => { }
+            })
             console.log("l4_3");
             bgm.play();
             this.setData({
@@ -370,6 +409,13 @@ Page({
             /**************代码区***************/
         }
         else if (this.data.Switch3 == false && this.data.Switch1 == true && this.data.Switch2 == false && this.data.Switch4 == true) {
+            wx.vibrateShort({
+                success: (res) => {
+                    console.log(res);
+                }, fail: (res) => {
+                    console.log(res);
+                }, complete: (res) => { }
+            })
             console.log("l4_4");
             bgm.play();
             this.setData({
@@ -405,6 +451,13 @@ Page({
             /**************代码区***************/
         }
         if (this.data.Switch3 == true && this.data.Switch1 == false && this.data.Switch2 == false && this.data.Switch4 == false && this.data.tempVoice != "") {
+            wx.vibrateShort({
+                success: (res) => {
+                    console.log(res);
+                }, fail: (res) => {
+                    console.log(res);
+                }, complete: (res) => { }
+            })
             bgm.play();
             console.log("l4_1");
             this.setData({
@@ -448,6 +501,13 @@ Page({
             /**************代码区***************/
         }
         else if (this.data.Switch3 == true && this.data.Switch1 == false && this.data.Switch2 == false && this.data.Switch4 == true && this.data.tempVoice != "") {
+            wx.vibrateShort({
+                success: (res) => {
+                    console.log(res);
+                }, fail: (res) => {
+                    console.log(res);
+                }, complete: (res) => { }
+            })
             bgm.play();
             console.log("l4_2");
             var that = this;
@@ -470,7 +530,7 @@ Page({
                 margintop4: 50,
                 bs1: " 4rpx 4rpx 4rpx 4rpx #575757",
                 bs2: " 4rpx 4rpx 4rpx 4rpx #575757",
-                bs3: " 4rpx 4rpx 4rpx 4rpx #575757",
+                bs3: " 0rpx 0rpx 0rpx 0rpx",
                 bs4: " 4rpx 4rpx 4rpx 4rpx #575757",
                 message: "Playing..."
             })
@@ -580,7 +640,6 @@ Page({
             setTimeout(function () {
                 //要延时执行的代码
                 console.log("timeout_trans")
-                that.test(that.data.message, "EN")
                 plugin.translate({
                 lfrom: "zh_CN",
                 lto: "en_US",
@@ -626,6 +685,13 @@ Page({
             }
             return;
         }
+        wx.vibrateShort({
+            success: (res) => {
+                console.log(res);
+            }, fail: (res) => {
+                console.log(res);
+            }, complete: (res) => { }
+        })
         this.setData({
             trans_bg_cn: "/images/knob_tap.jpg",
             bs_t_cn: "0rpx 7rpx 7rpx 0rpx",
@@ -718,7 +784,6 @@ Page({
             setTimeout(function () {
                 //要延时执行的代码
                 console.log("timeout_trans")
-                that.test(that.data.message, "zh-CHS")
                 plugin.translate({
                     lfrom: "en_US",
                     lto: "zh_CN",
@@ -766,6 +831,13 @@ Page({
             }
             return;
         }
+        wx.vibrateShort({
+            success: (res) => {
+                console.log(res);
+            }, fail: (res) => {
+                console.log(res);
+            }, complete: (res) => { }
+        })
         this.setData({
             trans_bg_en: "/images/knob_tap.jpg",
             bs_t_en: "0rpx 7rpx 7rpx 0rpx",
@@ -789,38 +861,6 @@ Page({
         bgm.play();
     },
 
-    test: function (trans, to_lang) {
-        // trans="this is a test"
-        // to_lang ="zh-CHS"
-        var q = trans
-        var appKey = "5445a4b07b987f3c"
-        var salt = (new Date).getTime();
-        var secretKey = "llzq3a9QfzGHkWndDOAId2NZ0LqWa2lW"
-        var password = utilMd5.md5(appKey + q + salt + secretKey)
-        password = password.toUpperCase();
-        console.log(password);
-
-        wx.request({
-            url: 'http://openapi.youdao.com/api',
-            data: {
-                q: encodeURI(q),
-                appKey: appKey,
-                salt: salt,
-                from: "",
-                to: to_lang,
-                sign: password
-            },
-            success: (res) => {
-                console.log(res.data.translation[0]);
-                this.setData({
-                    translate: res.data.translation[0]
-                })
-            }, fail: (res) => {
-                console.log(res);
-            }, complete: (res) => { }
-        })
-    },
-
     voiceMake: function () {
         if (this.data.Switch1 == true) {
             wx.showModal({
@@ -834,6 +874,13 @@ Page({
             }
             return;
         }
+        wx.vibrateShort({
+            success: (res) => {
+                console.log(res);
+            }, fail: (res) => {
+                console.log(res);
+            }, complete: (res) => { }
+        })
         var that = this
         that.setData({
             trans_bg_voi: "/images/knob_tap.jpg",
@@ -887,7 +934,7 @@ Page({
     copy:function() {
         var that=this
         wx.showActionSheet({
-            itemList: ['复制转换文字', '复制翻译文字', '编辑转换文字','搜索转换文字','搜索翻译文字','选择搜索引擎'],
+            itemList: ['复制转换文字', '复制翻译文字', '编辑转换文字'],
             success: function (e) {
                 if (e.tapIndex == 0) {
                     wx.setClipboardData({
@@ -908,79 +955,6 @@ Page({
                         url: "/pages/edit/edit?Text="+pas+"&int="+int,
                     })
                 }
-                if (e.tapIndex == 3) {
-                    var t=""
-                    var search=""
-                    wx.getStorage({
-                        key: 'engine',
-                        success: function(res) {
-                            console.log(res);
-                            t=res.data
-                            search=t+that.data.message
-                            console.log(search);
-                            wx.setStorage({
-                                key: 'search',
-                                data: search,
-                            })
-                            wx.navigateTo({
-                                url: '../baidu/baidu',
-                                success: function () {
-
-                                },       //成功后的回调；
-                                fail: function () { },         //失败后的回调；
-                                complete: function () { }      //结束后的回调(成功，失败都会执行)
-                            })
-                        },
-                    })
-                }
-                if (e.tapIndex == 4) {
-                    var t = ""
-                    var search = ""
-                    wx.getStorage({
-                        key: 'engine',
-                        success: function (res) {
-                            console.log(res);
-                            t = res.data
-                            search = t + that.data.translate
-                            console.log(search);
-                            wx.setStorage({
-                                key: 'search',
-                                data: search,
-                            })
-                            wx.navigateTo({
-                                url: '../baidu/baidu',
-                                success: function () {
-
-                                },       //成功后的回调；
-                                fail: function () { },         //失败后的回调；
-                                complete: function () { }      //结束后的回调(成功，失败都会执行)
-                            })
-                        },
-                    })
-                }
-                if (e.tapIndex == 5) {
-                    wx.showModal({
-                        title: '切换引擎',
-                        content: '请在「用前必读」中更改搜索引擎',
-                        showCancel: true,//是否显示取消按钮
-                        cancelText: "就用这个",//默认是“取消”
-                        //cancelColor: 'skyblue',//取消文字的颜色
-                        confirmText: "现在更改",//默认是“确定”
-                        //confirmColor: 'skyblue',//确定文字的颜色
-                        success: function (res) {
-                            if (res.cancel) {
-                                //点击取消,默认隐藏弹框
-                            } else {
-                                //点击确定
-                                wx.switchTab({
-                                    url: '../about/about',
-                                })
-                            }
-                        },
-                        fail: function (res) { },//接口调用失败的回调函数
-                        complete: function (res) { },//接口调用结束的回调函数（调用成功、失败都会执行）
-                    })
-                }
             }
         })
     },
@@ -991,6 +965,14 @@ Page({
             title: '保存当前录音',
             content: '录音将被保存到「保存记录中」',
             success:(res)=> {
+                if (that.data.Switch1 == true) {
+                    wx.showModal({
+                        title: '正在录音中',
+                        content: '请先结束录音再保存',
+                        showCancel: false
+                    })
+                    return
+                }
                 console.log(res);
                 if(res.confirm==true) {
                     if(this.data.tempVoice!="") {
@@ -1008,29 +990,78 @@ Page({
         })
     },
 
+    getLocalTime: function (nS) {
+        return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/, ' ');
+    },
+
     saveRecord:function() {
+
         wx.saveFile({
             tempFilePath: this.data.tempVoice,
             success:(res)=> {
                 console.log(res);
                 var shit = res.savedFilePath
-                console.log(shit);
+                console.log(shit)
+                wx.getSavedFileInfo({
+                    filePath: shit,
+                    success:(res)=> {
+                        console.log(res);
+                        var json = {
+                            name: this.getLocalTime(res.createTime) + "保存的录音",
+                            color:"",
+                            path: shit,
+                            createTime: res.createTime
+                        }
+                        List.push(json)
+                        console.log("List.length:"+List.length);
+                        wx.setStorage({
+                            key: 'List',
+                            data: List,
+                            success:(res)=> {
+                                console.log(res);
+                            },fail:(res)=> {
+                                console.log(res);
+                            },complete:(res)=>{}
+                        })
+                    },fail:(res)=> {
+                        console.log(res);
+                    },complete:(res)=>{}
+                })
             },fail:(res)=> {
                 console.log(res);
             },complete:(res)=>{}
         })
-        
     },
 
-    goBaidu:function() {
-        var that=this
-        wx.navigateTo({
-            url: '../baidu/baidu?mes='+that.data.message,
-            success: function () {
+    test: function (trans, to_lang) {
+        // trans="this is a test"
+        // to_lang ="zh-CHS"
+        var q = trans
+        var appKey = "5445a4b07b987f3c"
+        var salt = (new Date).getTime();
+        var secretKey = "llzq3a9QfzGHkWndDOAId2NZ0LqWa2lW"
+        var password = utilMd5.md5(appKey + q + salt + secretKey)
+        password = password.toUpperCase();
+        console.log(password);
 
-            },       //成功后的回调；
-            fail: function () { },         //失败后的回调；
-            complete: function () { }      //结束后的回调(成功，失败都会执行)
+        wx.request({
+            url: 'https://openapi.youdao.com/api',
+            data: {
+                q: encodeURI(q),
+                appKey: appKey,
+                salt: salt,
+                from: "",
+                to: to_lang,
+                sign: password
+            },
+            success: (res) => {
+                console.log(res.data.translation[0]);
+                this.setData({
+                    translate: res.data.translation[0]
+                })
+            }, fail: (res) => {
+                console.log(res);
+            }, complete: (res) => { }
         })
-    }
+    },
 }) 
