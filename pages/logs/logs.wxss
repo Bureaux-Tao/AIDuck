@@ -1,40 +1,49 @@
 page {
     background-image: url("https://ws1.sinaimg.cn/large/8e278454gy1fur0mk768nj220j3kx13s.jpg");
-    background-size: 120% 120%;     
+    background-size: 110% 100%;
+    overflow-x:hidden;
 }
-.group{
-    margin-top:45rpx;
+
+.group {
+    margin-top: 45rpx;
     margin-bottom: 50rpx;
     margin-left: 25rpx;
     margin-right: 25rpx;
-    height: 130rpx;
-    border-radius: 5rpx;
-    -webkit-border-radius: 20rpx;
-    -moz-border-radius: 20rpx;
+    height: 138rpx;
+    border-radius: 50rpx;
+    -webkit-border-radius: 35rpx;
+    -moz-border-radius: 35rpx;
     display: flex;
-    justify-content: center;
     align-items: center;
-    box-shadow: 4rpx 4rpx 4rpx 4rpx #888
+    box-shadow: 5rpx 5rpx 5rpx 5rpx #BBB;
 }
-.group-text{
-    height:50rpx;
+
+.group-text {
+    height: 55rpx;
     font-size: 36rpx;
 }
+
 .icon {
     height: 55rpx;
     width: 60rpx;
-    margin: 15rpx;
+    margin-left: 30rpx;
+    margin-right: 15rpx;
+    margin-top: 15rpx;
+    margin-bottom: 15rpx;
 }
+
 .tips {
     position: absolute;
-    top:680rpx;
-    left:150rpx;
+    top: 680rpx;
+    left: 150rpx;
 }
+
 .tips-img {
     height: 400rpx;
     width: 550rpx;
     z-index: 1;
 }
+
 .tips-text {
     font-size: 52rpx;
     position: relative;
@@ -42,6 +51,36 @@ page {
     top: -315rpx;
     left: 115rpx;
 }
+
 .container {
     padding-bottom: 30rpx;
+}
+
+.control {
+    width: 90%;
+    height: 200rpx;
+    margin: auto;
+    margin-bottom: -50rpx;
+}
+
+.jindu {
+    width: 90%;
+}
+.jd-group {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -20rpx;
+}
+.jd-button {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25rpx;
+    margin-left: 17rpx;
+    margin-right: 17rpx;
+}
+.jd-icon-self {
+    height: 55rpx;
+    width: 55rpx;
 }

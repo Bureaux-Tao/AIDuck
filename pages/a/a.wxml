@@ -1,4 +1,7 @@
 <view class='container'>
+    <!-- <view class='show' bindtap='tiao' wx:if="{{isTipShow}}">
+        <view class='show-text'>使用有困难? 仔细阅读设置->使用说明哦!</view>
+    </view> -->
     <view class='container-li'>
         <view class='container-li-each' bindtap='a'>
             <image src='https://ws1.sinaimg.cn/large/8e278454gy1fvi71py9knj20p00hrdk7.jpg' class="pic" mode='aspectFill'></image>
@@ -32,4 +35,5 @@
             </view>
         </view>
     </view>
+    <sc-snackbar id="snackbar">这是一个snackbar</sc-snackbar>
 </view>

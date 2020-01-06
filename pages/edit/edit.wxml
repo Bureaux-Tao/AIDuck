@@ -1,4 +1,4 @@
 <view class='container'>
-    <textarea value='{{Text}}' placeholder="输入内容鸭" auto-focus='{{true}}' focus='{{true}}' adjust-position="{{true}}" show-confirm-bar='{{true}}' bindconfirm="OK" class="ta"></textarea>
+    <textarea value='{{Text}}' placeholder="输入内容鸭" auto-focus='{{true}}' focus='{{true}}' adjust-position="{{true}}" show-confirm-bar='{{true}}' bindconfirm="OK" class="ta" maxlength="{{maxlength}}"></textarea>
 
 </view>

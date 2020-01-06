@@ -1,0 +1,69 @@
+<view class='container'>
+
+    <view class="c">
+        <view class="c-1">功能简介</view>
+        <view class="ccc-1">语音识别</view>
+        <view class="c-3">1. 轻拍[Record]进行纯录音</view>
+        <view class="c-4">2. 停止、播放、暂停与录音机一致</view>
+        <view class="c-5">3. 按住「中文听写」/「英文听写」进行中/英文听写, 松开显示内容及其翻译</view>
+        <view class="c-6">4. 轻拍[读出翻译]读出对应译文</view>
+        <view class="c-7">5. 翻译完后轻拍[start]播放之前录音</view>
+        <view class="c-8">6. 轻拍[普通话模式]可以切换普通话/粤语</view>
+        <view class="ccc-2">图片识别</view>
+        <view class="c-8">1. 轻拍[拍照/选照]来获取要识别的图片</view>
+        <view class="c-9">2. 一次只能识别一张,选择后自动进行识别</view>
+        <view class="c-10">3. 识别支持高精度识别和通用识别, 高精度识别不支持多语言, 修改识别模式请在设置中修改</view>
+        <view class="c-11">4. 手写识别只支持中英文</view>
+        <view class="c-12">5. 通用识别支持的语言:中英文、英文、葡萄牙文、法文、德文、意大利文、西班牙文、俄文、日文、韩文</view>
+        <view class="c-13">6. 识别后翻译支持的语言:中文、英文、日文、韩文、法文、俄文、葡萄牙文、西班牙文、越南文</view>
+        <view class="c-14">7. 图片旋转请在选择照片界面右下角点击编辑中进行</view>
+    </view>
+
+    <view class="d">
+        <view class="d-1">据说99%的人都不知道有这些功能</view>
+        <view class="d-3">1. 长按磁带保存当前录音</view>
+        <view class="d-4">2. 点击[语音识别]的文本框选择编辑文字内容进行再翻译、复制听写文字、翻译文字</view>
+        <view class="d-5">3. 点击每条[保存记录]弹出播放器</view>
+    </view>
+
+    <view class="e">
+        <view class="e-1">注意事项</view>
+        <view class="e-2">1. 首次切换语音识别翻译语言可能会延时, 导致译文与原文一致, 请再次听写</view>
+        <view class="e-3">2. [语音识别]中上面4个按钮只能进行录音操作, 要识别成文字请按住[中文听写]说话</view>
+        <view class="e-4">3. 如果初次未授予录音权限可能会导致错误, 请在本页面最下面重新授权</view>
+        <view class="e-5">5. 语音听写字数请控制在80字内, 图片识别字数请控制在1000字以内</view>
+        <view class="e-6">6. 由于本小程序免费使用, 每日文字识别次数限500次, 用完为止, 先用先有</view>
+
+    </view>
+
+    <view class="f">
+        <view class="f-1">联系我</view>
+        <view class="f-3">Bureaux Tao</view>
+        <view class="f-4">邮箱:
+            <a url="taosh.dev@gmail.com">taosh.dev@gmail.com</a>
+        </view>
+        <view class="f-5">微信:ab690500385</view>
+        <view class="f-6">企鹅号:690500385</view>
+    </view>
+    <button class='contact' bindtap='contact'>反馈问题</button>
+
+    <view class="g">
+        <view class="g-1">Github源码:</view>
+        <a class="g-1">https://github.com/Bureaux-Tao/RecognizeDuck</a>
+        <view class="g-2">欢迎Pull Request,提Issus</view>
+        <view class="g-3">将开源进行到底!</view>
+        <view class="g-4">喜欢吗?喜欢的话可以点击识别二维码请开发者喝一瓶饮料</view>
+        <view>(˶‾ ⁻̫ ‾˵)</view>
+    </view>
+
+    <image src='/images/F26B279C2668F7D6861DEF1136A5A650-228.jpg' class="s" bindtap='pre'></image>
+
+
+    <view class="h">
+        <view class="h-1">请勿将此开源项目用作商业通途</view>
+        <view class="h-2">本项目最终解释权归属作者所有</view>
+        <view class="h-3"></view>
+    </view>
+    <!-- <button bindtap='test'>test</button> -->
+
+</view>

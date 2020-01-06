@@ -1,142 +1,82 @@
 <view class="container">
-    
+
     <view class="show-iconView">
-        <image 
-            src='/images/tape.png' 
-            class="tape"
-            bindlongtap='showSaveFileToast'></image>
-        <image 
-            src="{{src}}" 
-            class="show-iconImage-1" 
-            animation="{{animation}}" 
-            mode="scaleToFill"></image>
-        <image 
-            src="{{src}}" 
-            class="show-iconImage-2" 
-            animation="{{animation}}" 
-            mode="scaleToFill" ></image>
+        <image src='/images/tape.png' class="tape" bindlongtap='showSaveFileToast'></image>
+        <image src="{{src}}" class="show-iconImage-1" animation="{{animation}}" mode="scaleToFill"></image>
+        <image src="{{src}}" class="show-iconImage-2" animation="{{animation}}" mode="scaleToFill"></image>
     </view>
-    
+
     <view class='recognizeResult' selectable="true" scroll-y="true" bindtap='copy'>
-            <textarea class='recognizeResult-text-1' selectable='true' space='true' scroll-y="true" scroll-top="99" disabled='{{true}}'>{{message}}</textarea>
-            <view class="hr1" style='height:1px;border:none;border-top:1px solid #888;margin-left:30rpx;margin-right:30rpx;' ></view>
-            <textarea class='recognizeResult-text-2' selectable='true' space='true' scroll-y="true" scroll-top="99" disabled='{{true}}'>{{translate}}</textarea>
+        <view class='recognizeResult-text-1' selectable='true' space='true' scroll-y="true" scroll-top="99" disabled='{{true}}'>{{message}}</view>
+        <view class="fengexian">
+            <view class="hr1" wx:if="{{fgx}}" style='height:1px;border:none;border-top:1px solid #888;margin-left:30rpx;margin-right:40rpx;'></view>
+            <image src='/images/icons8-collapse_arrow_filled.png' class="icon-self" wx:if="{{fgx}}"></image>
         </view>
+        <view class='recognizeResult-text-2' selectable='true' space='true' scroll-y="true" scroll-top="99" disabled='{{true}}'>{{translate}}</view>
+    </view>
 
     <view class="Buttom">
         <view>
-            <image 
-                src='{{iconSrc1}}' 
-                mode='scaleToFill' 
-                class="Buttum-each" 
-                id="Buttum-record" 
-                bindtap='Record' 
-                style="margin-top: {{margintop1}}rpx;box-shadow:{{bs1}}"></image>
-        </view>
-        
-        <view>
-            <image 
-                src='{{iconSrc2}}' 
-                bindtap='Stop' 
-                mode='scaleToFill' 
-                class="Buttum-each" 
-                id="Buttum-stop" 
-                style="margin-top: {{margintop2}}rpx;box-shadow:{{bs2}}"></image>
+            <image src='{{iconSrc1}}' mode='scaleToFill' class="Buttum-each" id="Buttum-record" bindtap='Record' style="margin-top: {{margintop1}}rpx;box-shadow:{{bs1}}"></image>
         </view>
 
         <view>
-            <image 
-                src='{{iconSrc3}}' 
-                bindtap='Start' 
-                mode='scaleToFill' 
-                class="Buttum-each" 
-                id="Buttum-play" 
-                style="margin-top: {{margintop3}}rpx;box-shadow:{{bs3}}"></image>
+            <image src='{{iconSrc2}}' bindtap='Stop' mode='scaleToFill' class="Buttum-each" id="Buttum-stop" style="margin-top: {{margintop2}}rpx;box-shadow:{{bs2}}"></image>
         </view>
 
         <view>
-            <image 
-                src='{{iconSrc4}}' 
-                bindtap='Pause' 
-                mode='scaleToFill' 
-                class="Buttum-each" 
-                id="Buttum-save" 
-                style="margin-top: {{margintop4}}rpx;box-shadow:{{bs4}}"></image>
+            <image src='{{iconSrc3}}' bindtap='Start' mode='scaleToFill' class="Buttum-each" id="Buttum-play" style="margin-top: {{margintop3}}rpx;box-shadow:{{bs3}}"></image>
+        </view>
+
+        <view>
+            <image src='{{iconSrc4}}' bindtap='Pause' mode='scaleToFill' class="Buttum-each" id="Buttum-save" style="margin-top: {{margintop4}}rpx;box-shadow:{{bs4}}"></image>
         </view>
     </view>
     <view class="Buttum-icon">
-            <view 
-                class="Buttum-icon-each" 
-                id="a1">
-                <image 
-                    src='{{biRecord}}' 
-                    class="Buttum-icon-image"></image>
-                <view 
-                    class="Buttum-icon-text" 
-                    id="f1" 
-                    style='color:{{fc1}}'>
-                    record
-                </view>
-            </view>
-
-            <view 
-                class="Buttum-icon-each" 
-                id="a2">
-                <image 
-                    src='{{biStop}}' 
-                    class="Buttum-icon-image"></image>
-                <view 
-                    class="Buttum-icon-text" 
-                    id="f2" 
-                    style='color:{{fc2}}'>
-                    Stop
-                </view>
-            </view>
-
-            <view 
-                class="Buttum-icon-each" 
-                id="a3">
-                <image 
-                    src='{{biStart}}' 
-                    class="Buttum-icon-image" 
-                    id="b1"></image>
-                <view 
-                    class="Buttum-icon-text" 
-                    id="f3" 
-                    style='color:{{fc3}}'>
-                    Start
-                </view>
-            </view>
-
-            <view 
-                class="Buttum-icon-each" 
-                id="a4">
-                <image 
-                    src='{{biPause}}' 
-                    class="Buttum-icon-image"></image>
-                <view 
-                    class="Buttum-icon-text" 
-                    id="f4" 
-                    style='color:{{fc4}}'>
-                    Pause
-                </view>
+        <view class="Buttum-icon-each" id="a1">
+            <image src='{{biRecord}}' class="Buttum-icon-image"></image>
+            <view class="Buttum-icon-text" id="f1" style='color:{{fc1}}'>
+                录音
             </view>
         </view>
 
-        <view class="trans-group">
-            <image src='{{trans_bg_cn}}' class="trans-button" id='cn' bindtouchstart='cnStart' bindtouchend='cnEnd' style='box-shadow:{{bs_t_cn}} #333333'></image>
-            <image src='{{trans_bg_en}}' class="trans-button" id='en'  bindtouchstart='enStart' bindtouchend='enEnd' style='box-shadow:{{bs_t_en}} #333333'></image>
-            <image src='{{trans_bg_voi}}' class="trans-button" id='voi' bindtap='voiceMake' style='box-shadow:{{bs_t_voi}} #333333'></image>
+        <view class="Buttum-icon-each" id="a2">
+            <image src='{{biStop}}' class="Buttum-icon-image"></image>
+            <view class="Buttum-icon-text" id="f2" style='color:{{fc2}}'>
+                停止
+            </view>
         </view>
-        
-        <view class="trans-group-text">
-            <view class='aaa'>中文听写</view>
-            <view class='bbb'>英文听写</view>
-            <view class='ccc'>读出翻译</view>
+
+        <view class="Buttum-icon-each" id="a3">
+            <image src='{{biStart}}' class="Buttum-icon-image" id="b1"></image>
+            <view class="Buttum-icon-text" id="f3" style='color:{{fc3}}'>
+                播放
+            </view>
         </view>
-        <!-- <button bindtap='test'>翻译</button> -->
-        <!-- <view class='wrapper'>
-            <button class='wepay' bindtap='goBaidu'>点击跳转</button>
-        </view> -->
-        
+
+        <view class="Buttum-icon-each" id="a4">
+            <image src='{{biPause}}' class="Buttum-icon-image"></image>
+            <view class="Buttum-icon-text" id="f4" style='color:{{fc4}}'>
+                暂停
+            </view>
+        </view>
+    </view>
+
+    <view class='fy' bindtap='fy'>
+        <image src='/images/icons8-chevron_left.png' class="arrow"></image>
+        <view class='fy-txt'>{{fy}}模式</view>
+
+    </view>
+
+    <view class="trans-group">
+        <image src='{{trans_bg_cn}}' class="trans-button" id='cn' bindtouchstart='cnStart' bindtouchend='cnEnd' style='box-shadow:{{bs_t_cn}} #333333'></image>
+        <image src='{{trans_bg_en}}' class="trans-button" id='en' bindtouchstart='enStart' bindtouchend='enEnd' style='box-shadow:{{bs_t_en}} #333333'></image>
+        <image src='{{trans_bg_voi}}' class="trans-button" id='voi' bindtap='voiceMake' style='box-shadow:{{bs_t_voi}} #333333'></image>
+    </view>
+
+    <view class="trans-group-text">
+        <view class='aaa'>中文听写</view>
+        <view class='bbb'>英文听写</view>
+        <view class='ccc'>读出翻译</view>
+    </view>
 </view>

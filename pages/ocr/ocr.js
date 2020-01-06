@@ -1,96 +1,34 @@
+var fundebug = require('../../libs/fundebug.0.8.2.min.js')
+fundebug.init(
+    {
+        apikey: "5811e8c7dc9ee21a8380a27164f5d73c6eafbe574f6bdea8f89b7d1aba7c918f",
+        silentInject: true
+    })
+
 var utilMd5 = require('../../utils/md5utf-8.js')
-var lang=""
+var lang = ""
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-      Text: "",
-      int: 0,
-      autoHeight:true,
-      src:"",
-      array: ['中文', '英文', '日文', '韩文', '法文', '俄文', '葡萄牙文', '西班牙文', '越南文'],
-      index: 0,
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {  
-      var that=this
-      wx.getStorage({
-          key: 'strWithN',
-          success: function(res) {
-              console.log(res);
-              that.setData({
-                  Text:res.data
-              })
-          },
-      })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  },
-
-    Copy:function() {
-        var that=this
-        wx.setClipboardData({
-            data: that.data.Text,
-        })
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        Text: "",
+        int: 0,
+        autoHeight: true,
+        src: "",
+        array: ['中文', '英文', '日文', '韩文', '法文', '俄文', '葡萄牙文', '西班牙文', '越南文'],
+        index: 0,
     },
 
-    Erase: function () {
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
         var that = this
         wx.getStorage({
-            key: 'strWithoutN',
-            success: function (res) {
+            key: 'strWithN',
+            success: function(res) {
                 console.log(res);
                 that.setData({
                     Text: res.data
@@ -99,11 +37,82 @@ Page({
         })
     },
 
-    bindPickerChange: function (e) {
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function() {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function() {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function() {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function() {
+        wx.navigateBack({
+            delta: 2
+        })
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function() {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function() {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function() {
+
+    },
+
+    Copy: function() {
+        var that = this
+        wx.setClipboardData({
+            data: that.data.Text,
+        })
+    },
+
+    Erase: function() {
+        var that = this
+        wx.getStorage({
+            key: 'strWithoutN',
+            success: function(res) {
+                console.log(res);
+                that.setData({
+                    Text: res.data
+                })
+            },
+        })
+    },
+
+    bindPickerChange: function(e) {
         switch (e.detail.value) {
             case '0':
                 console.log('picker发送选择改变，携带值为', e.detail.value)
-                lang ="zh-CHS"
+                lang = "zh-CHS"
                 break;
             case '1':
                 console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -138,12 +147,12 @@ Page({
                 lang = "vi"
                 break;
         }
-        this.Translate(this.data.Text,lang)
+        this.Translate(this.data.Text, lang)
     },
 
-    Check: function () {
-        var that=this
-        if(that.data.autoHeight==true) {
+    Check: function() {
+        var that = this
+        if (that.data.autoHeight == true) {
             that.setData({
                 autoHeight: false
             })
@@ -151,7 +160,7 @@ Page({
                 key: 'pic',
                 success: function(res) {
                     that.setData({
-                        src:res.data,
+                        src: res.data,
                     })
                 },
             })
@@ -162,11 +171,11 @@ Page({
         }
     },
 
-    Undo: function () {
+    Undo: function() {
         var that = this
         wx.getStorage({
             key: 'strWithN',
-            success: function (res) {
+            success: function(res) {
                 console.log(res);
                 that.setData({
                     Text: res.data
@@ -175,17 +184,17 @@ Page({
         })
     },
 
-    OK: function (event) {
+    OK: function(event) {
         console.log(event);
         var mod = event.detail.value
         console.log("OK");
         this.setData({
-            Text:mod
+            Text: mod
         })
         console.log(this.data.Text);
     },
 
-    Translate: function (trans, to_lang) {
+    Translate: function(trans, to_lang) {
         // trans="this is a test"
         // to_lang ="zh-CHS"
         var q = trans
@@ -197,6 +206,7 @@ Page({
         console.log(password);
         wx.showLoading({
             title: '翻译中...',
+            mask: true
         })
         wx.request({
             url: 'https://openapi.youdao.com/api',
@@ -212,36 +222,32 @@ Page({
                 console.log(res.data.errorCode);
 
                 //判错
-                if(res.data.errorCode!="0") {
+                if (res.data.errorCode != "0") {
                     if (res.data.errorCode == "103") {
                         wx.showModal({
                             title: 'Ooops 翻译出错了',
                             content: '翻译文本过长, 请分次翻译',
-                            showCancel:false
+                            showCancel: false
                         })
-                    }
-                    else if (res.data.errorCode == "113") {
+                    } else if (res.data.errorCode == "113") {
                         wx.showModal({
                             title: 'Ooops 翻译出错了',
                             content: '翻译内容不能为空, 写点内容8',
                             showCancel: false
                         })
-                    }
-                    else if (res.data.errorCode == "301") {
+                    } else if (res.data.errorCode == "301") {
                         wx.showModal({
                             title: 'Ooops 翻译出错了',
                             content: '词典查询失败, 请再次尝试',
                             showCancel: false
                         })
-                    }
-                    else if (res.data.errorCode == "302") {
+                    } else if (res.data.errorCode == "302") {
                         wx.showModal({
                             title: 'Ooops 翻译出错了',
                             content: '翻译查询失败, 请再次尝试',
                             showCancel: false
                         })
-                    }
-                    else if (res.data.errorCode == "411") {
+                    } else if (res.data.errorCode == "411") {
                         wx.showModal({
                             title: 'Ooops 翻译出错了',
                             content: '太过频繁地请求, 请歇会',
@@ -250,22 +256,25 @@ Page({
                     } else {
                         wx.showModal({
                             title: 'Ooops 翻译出错了',
-                            content: "错误码:" + res.data.errorCode+"。请将此错误码反馈给开发者",
+                            content: "错误码:" + res.data.errorCode + "。请将此错误码反馈给开发者",
                             showCancel: false
                         })
                     }
                     return
                 }
-                var temp=""
+                var temp = ""
                 // console.log(res.data.translation[0]);
                 temp = res.data.translation[0]
                 // console.log(temp);
                 this.setData({
                     Text: temp
                 })
-            }, fail: (res) => {
+            },
+            fail: (res) => {
+                fundebug.notifyError(res);
                 console.log(res);
-            }, complete: (res) => { 
+            },
+            complete: (res) => {
                 wx.hideLoading()
             }
         })

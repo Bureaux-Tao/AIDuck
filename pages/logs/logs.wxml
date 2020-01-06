@@ -1,15 +1,31 @@
 <view class='container'>
     <!-- <button bindtap='test'>test</button> -->
-    <view class="group"wx:for="{{recordList}}" wx:for-item="item" data-id="{{index}}" style='background-color: {{timeName[index].color}} 'bindtap='select'>
-        <image src='/images/icons8-tape_drive.png' class="icon"></image>
-        <textarea disabled='{{true}}' class='group-text' bindtap='select'>{{timeName[index].name}}</textarea>
+    <view wx:for="{{recordList}}" wx:for-item="item" data-id="{{index}}">
+
+        <view class="group" style='background-color: {{timeName[index].color}}' bindtap='funct' data-id="{{index}}">
+            <image src='/images/icons8-tape_drive.png' class="icon"></image>
+            <view disabled="{{true}}" class='group-text' bindtap='funct' maxlength='{{maxlength}}' data-id="{{index}}">{{timeName[index].name}}</view>
+        </view>
+
+        <view class='control' wx:if="{{timeName[index].isPlay}}">
+            <view class='jd-group'>
+                <view class='a-t'>{{time_a_min}}:{{time_a_sec}}</view>
+                <slider class='jindu' block-size='15' activeColor='{{timeName[index].color}}' value='{{currency}}' bindchange='slided' bindchanging='sliding' block-color='#000000' disabled="{{can}}"></slider>
+                <view class='b-t'>{{time_b_min}}:{{time_b_sec}}</view>
+            </view>
+            <view class='jd-button'>
+                <image src='/images/icons8-connection_status_off_filled.png' class="jd-icon-self" bindtap='choise' data-id="{{index}}"></image>
+                <image src='{{icon}}' class="jd-icon-self" bindtap='xplay'></image>
+                <image src='/images/icons8-trash_filled.png' class="jd-icon-self" data-id="{{index}}" bindtap='Delete'></image>
+            </view>
+        </view>
     </view>
+
     <view class='tips' wx:if="{{isis}}">
         <image src='/images/tips.png' class="tips-img"></image>
         <view class="tips-text">
             <view>一个录音都没有</view>
             <view>试试长按磁带⑧</view>
         </view>
-
     </view>
 </view>

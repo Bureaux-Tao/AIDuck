@@ -1,7 +1,7 @@
- <view class="container">
+<view class="container">
     <image src='https://ws1.sinaimg.cn/large/8e278454gy1fvf83p053dj20lo0czait.jpg' class="tit"></image>
     <view class="img-container">
-        <image src='{{image}}' class="img"></image> 
+        <image src='{{image}}' class="img"></image>
     </view>
     <image src='{{btn}}' class="btn" bindtap='btntap'></image>
     <view class='tip'>拍照/选照</view>
@@ -19,4 +19,4 @@
     </view>
     <view id='tip2'>更改印刷体识别语言请在设置中更改</view>
     <view id='tip3'>手写体识别只支持中英文</view>
- </view>
+</view>

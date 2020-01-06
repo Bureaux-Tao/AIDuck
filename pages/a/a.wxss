@@ -1,17 +1,21 @@
 /* pages/a/a.wxss */
+
 page {
     background-image: url("https://ws1.sinaimg.cn/large/8e278454gy1fvia1aegvuj20v91la48r.jpg");
     background-size: 100% 100%;
 }
+
 .container {
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column
+    flex-direction: column;
 }
+
 .container-li {
     margin-bottom: 40rpx;
 }
+
 .container-li-each {
     width: 680rpx;
     height: 430rpx;
@@ -23,22 +27,37 @@ page {
     margin-top: 40rpx;
     margin-bottom: 30rpx;
 }
+
 .pic {
     width: 100%;
     height: 280rpx;
     border-radius: 25rpx;
     -webkit-border-radius: 25rpx 25rpx 0rpx 0rpx;
     -moz-border-radius: 25rpx;
-
 }
+
 .title {
     font-size: 52rpx;
     margin-left: 25rpx;
     margin-top: 5rpx;
 }
+
 .tip {
     font-size: 26rpx;
     color: #aaa;
     margin-left: 30rpx;
     margin-top: 7rpx;
+}
+.show {
+    height:70rpx;
+    width: 100%;
+    background-color: palevioletred;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.show-text {
+    color: white;
+    margin: auto;
+    font-size: 30rpx;
 }

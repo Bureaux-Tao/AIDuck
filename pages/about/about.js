@@ -1,74 +1,81 @@
+var fundebug = require('../../libs/fundebug.0.8.2.min.js')
+fundebug.init(
+    {
+        apikey: "5811e8c7dc9ee21a8380a27164f5d73c6eafbe574f6bdea8f89b7d1aba7c918f",
+        silentInject: true
+    })
+
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-      a: ['https://ws1.sinaimg.cn/large/8e278454gy1fur3std6hyj20oa0o976a.jpg'],
-      engine: "",
-      array: ['中英文混合', '英文', '葡萄牙语', '法语', '德语', '意大利语', '西班牙语', '俄语', '日语','韩语'],
-      index: 0,
-      dis:false
-  },
-  
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        engine: "",
+        array: ['中英文混合', '英文', '葡萄牙语', '法语', '德语', '意大利语', '西班牙语', '俄语', '日语', '韩语'],
+        index: 0,
+        dis: false
+    },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function(options) {
 
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function() {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function() {
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
+    },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function() {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  },
+    },
 
-    Auth: function () {
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function() {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function() {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function() {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function() {
+
+    },
+
+    Auth: function() {
         var that = this;
         wx.openSetting({
             success: (res) => {
@@ -80,7 +87,7 @@ Page({
                         title: '提示',
                         content: '您未授权录音，功能将无法使用',
                         showCancel: false,
-                        success: function (res) {
+                        success: function(res) {
 
                         },
                     })
@@ -90,25 +97,13 @@ Page({
                     //recorderManager.start(options);
                 }
             },
-            fail: function () {
+            fail: function() {
                 console.log("授权设置录音失败");
             }
         })
     },
 
-    pre:function() {
-        
-        wx.previewImage({
-            urls: this.data.a,
-            success:(res)=> {
-                console.log(res);
-            },fail:(res)=> {
-                console.log(res);
-            },complete:(res)=>{}
-        }) 
-    },
-
-    bindPickerChange: function (e) {
+    bindPickerChange: function(e) {
         // console.log('picker发送选择改变，携带值为', e.detail.value)
         switch (e.detail.value) {
             case '0':
@@ -189,58 +184,105 @@ Page({
             key: 'engine',
             success: (res) => {
                 console.log(res);
-            }, fail: (res) => {
-                console.log(res);
-            }, complete: (res) => { }
+            },
+            fail: (res) => {},
+            complete: (res) => {}
         })
     },
 
-    accu:function () {
-        var that=this
+    accu: function() {
+        var that = this
         wx.showActionSheet({
-            itemList: ['通用识别(支持多语言)','高精度识别(只支持中英文)'],
-            success: function (e) {
+            itemList: ['通用识别(支持多语言)', '高精度识别(只支持中英文)'],
+            success: function(e) {
                 if (e.tapIndex == 0) {
                     wx.setStorage({
                         key: 'isAccu',
                         data: false,
-                        success:(res)=> {
+                        success: (res) => {
                             console.log(res);
                             that.setData({
                                 dis: false
                             })
-                        },fail:(res)=> {
+                        },
+                        fail: (res) => {
                             console.log(res);
-                        },complete:(res)=>{}
+                        },
+                        complete: (res) => {}
                     })
                 }
                 if (e.tapIndex == 1) {
                     wx.setStorage({
                         key: 'isAccu',
                         data: true,
-                        success:(res)=> {
+                        success: (res) => {
                             console.log(res);
                             that.setData({
-                                dis:true
+                                dis: true
                             })
-                        },fail:(res)=> {
+                        },
+                        fail: (res) => {
                             console.log(res);
-                        },complete:(res)=>{}
+                            fundebug.notifyError(res);
+                        },
+                        complete: (res) => {}
                     })
                 }
             }
         })
     },
 
-    back: function () {
+    back: function() {
         wx.redirectTo({
             url: '/pages/a/a',
         })
     },
 
-    contact:function() {
+    share: function() {
         wx.previewImage({
-            urls: ["https://ws1.sinaimg.cn/large/8e278454gy1fviazyv0yxj20ih0iuwgu.jpg"],
+            urls: ['https://ws1.sinaimg.cn/large/8e278454gy1fvioz6x8t3j20nw0nwdkh.jpg'],
+        })
+    },
+
+    intro:function() {
+        wx.navigateTo({
+            url: '/pages/introduce/introduce',
+        })
+    },
+
+    fy:function() {
+        wx.showModal({
+            title: '切换中文听写方言',
+            content: '当前支持普通话和粤语',
+            cancelText: '普通话',
+            confirmText: '粤语',
+            cancelColor: "#000000",
+            confirmColor: "#000000",
+            success: (res) => {
+                console.log(res);
+                if (res.cancel == true) {
+                    wx.setStorage({
+                        key: 'isPTH',
+                        data: true,
+                    })
+                    // this.setData({
+                    //     fy: '普通话'
+                    // })
+                    // option1.lang = "zh_CN"
+                } else {
+                    wx.setStorage({
+                        key: 'isPTH',
+                        data: false,
+                    })
+                    // this.setData({
+                    //     fy: '粤语'
+                    // })
+                    // option1.lang = "zh_HK"
+                }
+            }, fail: (res) => {
+                console.log(res);
+                fundebug.notifyError(res);
+            }, complete: (res) => { }
         })
     }
 })

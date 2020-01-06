@@ -2,6 +2,7 @@ page {
     background-image: url("https://ws1.sinaimg.cn/large/8e278454gy1fur0prf3lvj20ow18gwj5.jpg");
     background-size: 100% 100%;     
     font-family:"Helvetica",Georgia,Serif;
+    overflow-x:hidden;
 }
 .show-iconView {
   display: flex;
@@ -50,7 +51,7 @@ page {
 }
 .Buttum-each {
     margin-top: 69rpx;  
-    height: 100rpx;
+    height: 90rpx;
     width: 168rpx;
     border: 1rpx solid black;
     background: #ddd;
@@ -79,7 +80,7 @@ page {
     margin-top: 6rpx;
 }
 .Buttum-icon-text {
-    font-size: 30rpx;
+    font-size: 27rpx;
     margin-left: 7rpx;
     font-weight:500;
     margin-top: 2rpx;
@@ -95,16 +96,16 @@ page {
     margin-top: -55rpx;
 }
 #a1 {
-    margin-left: 20rpx;
+    margin-left: -15rpx;
 }
 #a2 {
-    margin-left: 20rpx;
+    margin-left: 50rpx;
 }
 #a3 {
-    margin-left: 20rpx;
+    margin-left: 45rpx;
 }
 #a4 {
-    margin-left: 30rpx;
+    margin-left: 60rpx;
 }
 button {
     margin-top: 200rpx;
@@ -112,7 +113,7 @@ button {
 .recognizeResult{
     padding-top: 1rpx;
     margin: auto;
-    height: 250rpx;
+    height: 245rpx;
     width: 690rpx;
     background: -webkit-linear-gradient(top,#EA8A55,#ECA972);
     border-radius: 10rpx;
@@ -192,9 +193,48 @@ button {
 }
 .bbb{
     margin-top: 25rpx;
-    margin-left: 122rpx;
+    margin-left: 118rpx;
 }
 .ccc{
     margin-top: 21rpx;
     margin-left: 120rpx;
+}
+.arrow {
+    height: 40rpx;
+    width: 60rpx;
+}
+.fy-txt {
+    margin-top: -5rpx;
+    font-size: 25rpx;
+    background-color: green;
+    height: 40rpx;
+    width: 140rpx;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5rpx;
+    -webkit-border-radius: 10rpx;
+    -moz-border-radius: 10rpx;
+    color: white
+}
+.fy {
+    height: 90rpx;
+    width: 110rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 25rpx;
+    margin-left: 103rpx;
+    margin-bottom: -55rpx;
+}
+
+.icon-self {
+    height: 50rpx;
+    width: 40rpx;
+    float: right;
+    margin-top: -26rpx;
+    padding-left: -15rpx;
 }
