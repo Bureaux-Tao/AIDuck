@@ -2,9 +2,7 @@
     <view class='fun-container-icon'>
         <image src='/images/icons8-copy.png' class="icon" id='a' bindtap='Copy'></image>
         <image src='/images/icons8-erase.png' class="icon" id='b' bindtap='Erase'></image>
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-            <image src='/images/icons8-great_britain.png' class="icon" id='c'></image>
-        </picker>
+        <image src='/images/icons8-great_britain.png' class="icon" id='c' bindtap="bindTrans"></image>
         <image src='/images/icons8-china.png' class="icon" id='d' bindtap='Check'></image>
         <image src='/images/icons8-undo.png' class="icon" id='e' bindtap='Undo'></image>
     </view>

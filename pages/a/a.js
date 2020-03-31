@@ -1,4 +1,4 @@
-const scui = require('../../utils/dist/sc-ui');
+const scui = require('../../utils/scui/sc-ui');
 
 Page({
 

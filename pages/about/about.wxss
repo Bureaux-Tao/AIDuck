@@ -1,6 +1,6 @@
 page {
-    background-image: url("https://ws1.sinaimg.cn/large/8e278454gy1fur0l8x3d1j20pw1do1ky.jpg");
-    background-size: 100% 100%;
+    background-image: url("https://bureaux-site.oss-cn-shanghai.aliyuncs.com/IMG_6526.JPG");
+    background-size: 100% 110%;
     overflow-x:hidden;
 }
 
@@ -25,10 +25,11 @@ page {
     margin-top: 20rpx;
     font-size: 40rpx;
     margin-bottom: 80rpx;
+    color: black;
 }
 
 .q1 {
-    background-color: #DCB9FF;
+    background-color: #cf88f3;
     color: black;
     width: 100%;
     height: 90rpx;
@@ -65,7 +66,7 @@ page {
 }
 
 .q2-2 {
-    background-color: #DCB9FF;
+    background-color: #cf88f3;
     color: black;
     width: 100%;
     height: 90rpx;
@@ -81,10 +82,11 @@ page {
     font-size: 25rpx;
     align-self: flex-start;
     margin-left: 30rpx;
+    color:black;
 }
 
 .q3 {
-    background-color: #DCB9FF;
+    background-color: #cf88f3;
     color: black;
     width: 100%;
     height: 90rpx;
@@ -97,7 +99,7 @@ page {
 }
 
 .q4 {
-    background-color: #DCB9FF;
+    background-color: #cf88f3;
     color: black;
     width: 100%;
     height: 90rpx;
@@ -119,7 +121,7 @@ page {
 
 .q5 {
     margin-top: 2rpx;
-    background-color: #DCB9FF;
+    background-color: #cf88f3;
     color: black;
     width: 100%;
     height: 90rpx;
@@ -136,11 +138,12 @@ page {
     align-self: flex-start;
     margin-left: 30rpx;
     margin-bottom: 7rpx;
+    color: black;
 }
 
 .q6 {
     margin-top: 2rpx;
-    background-color: #DCB9FF;
+    background-color: #cf88f3;
     color: black;
     width: 100%;
     height: 90rpx;
@@ -158,4 +161,6 @@ page {
     font-size: 25rpx;
     align-self: flex-start;
     margin-left: 30rpx;
+    color:black;
+
 }

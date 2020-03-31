@@ -1,5 +1,6 @@
 <view class="container">
-    <image src='https://ws1.sinaimg.cn/large/8e278454gy1fvf83p053dj20lo0czait.jpg' class="tit"></image>
+    <image src='https://bureaux-site.oss-cn-shanghai.aliyuncs.com/IMG_6505_2.PNG' 
+    class="tit"></image>
     <view class="img-container">
         <image src='{{image}}' class="img"></image>
     </view>

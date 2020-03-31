@@ -14,7 +14,7 @@ Page({
         bt: false,
         btn: "/images/button-un.png",
         swit: "/images/switch_left.png",
-        image: "https://ws1.sinaimg.cn/large/8e278454gy1fvf850412pj20ir0rsh3i.jpg"
+        image: "https://bureaux-site.oss-cn-shanghai.aliyuncs.com/IMG_6505.PNG"
     },
 
     /**

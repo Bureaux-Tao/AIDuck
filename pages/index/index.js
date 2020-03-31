@@ -1117,41 +1117,6 @@ Page({
         })
     },
 
-    test: function(trans, to_lang) {
-        // trans="this is a test"
-        // to_lang ="zh-CHS"
-        var q = trans
-        var appKey = "5445a4b07b987f3c"
-        var salt = (new Date).getTime();
-        var secretKey = "llzq3a9QfzGHkWndDOAId2NZ0LqWa2lW"
-        var password = utilMd5.md5(appKey + q + salt + secretKey)
-        password = password.toUpperCase();
-        console.log(password);
-
-        wx.request({
-            url: 'https://openapi.youdao.com/api',
-            data: {
-                q: encodeURI(q),
-                appKey: appKey,
-                salt: salt,
-                from: "",
-                to: to_lang,
-                sign: password
-            },
-            success: (res) => {
-                console.log(res.data.translation[0]);
-                this.setData({
-                    translate: res.data.translation[0]
-                })
-            },
-            fail: (res) => {
-                fundebug.notifyError(res);
-                console.log(res);
-            },
-            complete: (res) => {}
-        })
-    },
-
     fy: function() {
         wx.showModal({
             title: '切换中文听写方言',

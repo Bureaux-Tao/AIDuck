@@ -1,6 +1,6 @@
 <view class="container">
-    <image src='https://ws1.sinaimg.cn/large/8e278454gy1fvioxqxzkyj20pi0pi42n.jpg' class="a" bindtap='share'></image>
-    <view class="b">AI鸭 v2.3.1</view>
+    <image src='/images/tc.png' class="a" bindtap='share'></image>
+    <view class="b">AI鸭 v2.4.1</view>
 
     <view class="settings">设置</view>
     <view bindtap='Auth' class='q1'>

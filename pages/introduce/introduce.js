@@ -4,7 +4,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        a: ['https://ws1.sinaimg.cn/large/8e278454gy1fur3std6hyj20oa0o976a.jpg'],
+        a: ['https://bureaux-site.oss-cn-shanghai.aliyuncs.com/IMG_6539.JPG'],
     },
 
     /**
@@ -65,7 +65,7 @@ Page({
 
     contact: function() {
         wx.previewImage({
-            urls: ["https://ws1.sinaimg.cn/large/8e278454gy1fviazyv0yxj20ih0iuwgu.jpg"],
+            urls: ["https://bureaux-site.oss-cn-shanghai.aliyuncs.com/IMG_6538.JPG"],
         })
     },
 

@@ -509,7 +509,6 @@ Page({
                             },
                             success: (res) => {
                                 console.log(res);
-                                wx.hideLoading()
 
                                 that.setData({
                                     content: res.data.words_result
@@ -559,7 +558,9 @@ Page({
                                 console.log(res);
                                 fundebug.notifyError(res);
                             },
-                            complete: (res) => {}
+                            complete: (res) => {
+                                wx.hideLoading()
+                            }
                         })
 
                     },
@@ -712,7 +713,9 @@ Page({
                 fail: (res) => {
                     console.log(res);
                 },
-                complete: (res) => {}
+                complete: (res) => {
+                    wx.hideLoading()
+                }
             })
 
         }

@@ -1,5 +1,5 @@
 page {
-    background-image: url("https://ws1.sinaimg.cn/large/8e278454gy1fvf6x32l3oj20v91ilk1i.jpg");
+    background-image: url("https://bureaux-site.oss-cn-shanghai.aliyuncs.com/IMG_6506.jpg");
     background-size: 100% 100%;
     /* font-family:"Helvetica",Georgia,Serif; */
     overflow-x:hidden;
@@ -15,7 +15,7 @@ page {
 .btn {
     height: 120rpx;
     width: 240rpx;
-    margin-top: 60rpx;
+    margin-top: 90rpx;
 }
 
 .tit {
@@ -66,7 +66,7 @@ page {
 }
 
 #tip2 {
-    margin-top: 50rpx;
+    margin-top: 30rpx;
     font-size: 20rpx;
     color: whitesmoke;
 }

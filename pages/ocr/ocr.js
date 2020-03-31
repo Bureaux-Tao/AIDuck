@@ -1,4 +1,7 @@
 var fundebug = require('../../libs/fundebug.0.8.2.min.js')
+var sha256 = require('../../utils/sha256');
+var plugin = requirePlugin("WechatSI")
+// var uuid = require('../../utils/uuid')
 fundebug.init(
     {
         apikey: "5811e8c7dc9ee21a8380a27164f5d73c6eafbe574f6bdea8f89b7d1aba7c918f",
@@ -108,46 +111,18 @@ Page({
         })
     },
 
-    bindPickerChange: function(e) {
-        switch (e.detail.value) {
-            case '0':
-                console.log('picker发送选择改变，携带值为', e.detail.value)
-                lang = "zh-CHS"
-                break;
-            case '1':
-                console.log('picker发送选择改变，携带值为', e.detail.value)
-                lang = "EN"
-                break;
-            case '2':
-                console.log('picker发送选择改变，携带值为', e.detail.value)
-                lang = "ja"
-                break;
-            case '3':
-                console.log('picker发送选择改变，携带值为', e.detail.value)
-                lang = "ko"
-                break;
-            case '4':
-                console.log('picker发送选择改变，携带值为', e.detail.value)
-                lang = "fr"
-                break;
-            case '5':
-                console.log('picker发送选择改变，携带值为', e.detail.value)
-                lang = "ru"
-                break;
-            case '6':
-                console.log('picker发送选择改变，携带值为', e.detail.value)
-                lang = "pt"
-                break;
-            case '7':
-                console.log('picker发送选择改变，携带值为', e.detail.value)
-                lang = "es"
-                break;
-            case '8':
-                console.log('picker发送选择改变，携带值为', e.detail.value)
-                lang = "vi"
-                break;
-        }
-        this.Translate(this.data.Text, lang)
+    bindTrans: function(e) {
+        wx.showActionSheet({
+            itemList: ['中文 → 英文', '英文 → 中文'],
+            success: (e)=> {
+                if (e.tapIndex == 0) {
+                    this.Translate(this.data.Text,"zh_CN","en_US")
+                }
+                if (e.tapIndex == 1) {
+                    this.Translate(this.data.Text,"en_US","zh_CN")
+                }
+            }
+        })
     },
 
     Check: function() {
@@ -194,89 +169,43 @@ Page({
         console.log(this.data.Text);
     },
 
-    Translate: function(trans, to_lang) {
-        // trans="this is a test"
-        // to_lang ="zh-CHS"
-        var q = trans
-        var appKey = "5445a4b07b987f3c"
-        var salt = (new Date).getTime();
-        var secretKey = "llzq3a9QfzGHkWndDOAId2NZ0LqWa2lW"
-        var password = utilMd5.md5(appKey + q + salt + secretKey)
-        password = password.toUpperCase();
-        console.log(password);
+    Translate: function(trans,from_lang ,to_lang) {
         wx.showLoading({
             title: '翻译中...',
-            mask: true
+            mask:true
         })
-        wx.request({
-            url: 'https://openapi.youdao.com/api',
-            data: {
-                q: encodeURI(q),
-                appKey: appKey,
-                salt: salt,
-                from: "",
-                to: to_lang,
-                sign: password
-            },
-            success: (res) => {
-                console.log(res.data.errorCode);
-
-                //判错
-                if (res.data.errorCode != "0") {
-                    if (res.data.errorCode == "103") {
-                        wx.showModal({
-                            title: 'Ooops 翻译出错了',
-                            content: '翻译文本过长, 请分次翻译',
-                            showCancel: false
-                        })
-                    } else if (res.data.errorCode == "113") {
-                        wx.showModal({
-                            title: 'Ooops 翻译出错了',
-                            content: '翻译内容不能为空, 写点内容8',
-                            showCancel: false
-                        })
-                    } else if (res.data.errorCode == "301") {
-                        wx.showModal({
-                            title: 'Ooops 翻译出错了',
-                            content: '词典查询失败, 请再次尝试',
-                            showCancel: false
-                        })
-                    } else if (res.data.errorCode == "302") {
-                        wx.showModal({
-                            title: 'Ooops 翻译出错了',
-                            content: '翻译查询失败, 请再次尝试',
-                            showCancel: false
-                        })
-                    } else if (res.data.errorCode == "411") {
-                        wx.showModal({
-                            title: 'Ooops 翻译出错了',
-                            content: '太过频繁地请求, 请歇会',
-                            showCancel: false
-                        })
-                    } else {
-                        wx.showModal({
-                            title: 'Ooops 翻译出错了',
-                            content: "错误码:" + res.data.errorCode + "。请将此错误码反馈给开发者",
-                            showCancel: false
-                        })
-                    }
-                    return
+        plugin.translate({
+            lfrom:from_lang,
+            lto:to_lang,
+            content:trans,
+            success: (res)=> {
+                if(res.retcode == 0) {
+                    console.log("result", res.result)
+                    this.setData({
+                        Text: res.result
+                    })
+                } else {
+                    console.warn("翻译失败", res)
                 }
-                var temp = ""
-                // console.log(res.data.translation[0]);
-                temp = res.data.translation[0]
-                // console.log(temp);
-                this.setData({
-                    Text: temp
-                })
+                wx.hideLoading()
             },
-            fail: (res) => {
-                fundebug.notifyError(res);
-                console.log(res);
-            },
-            complete: (res) => {
+            fail:(res) =>{
+                console.log("网络失败",res)
+                wx.showToast({
+                    title: "无网络连接",
+                    icon: 'success',
+                    image: '/images/icons8-fail.png',
+                    duration: 1000,
+                    success: function(res) {
+
+                    },
+                    fail: function(res) {
+                        console.log(res);
+                    }
+                });
                 wx.hideLoading()
             }
         })
     },
+
 })

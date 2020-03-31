@@ -87,9 +87,10 @@ Page({
             console.log(this.data.maxlength);
             prevPage.setData({
                 message: tran,
-                fgx: true
+                fgx: false,
+                translate:""
             })
-            prevPage.test(tran);
+            // prevPage.test(tran);
         } else {
             var that = this
             wx.getStorage({

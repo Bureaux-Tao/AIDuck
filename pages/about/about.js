@@ -240,7 +240,7 @@ Page({
 
     share: function() {
         wx.previewImage({
-            urls: ['https://ws1.sinaimg.cn/large/8e278454gy1fvioz6x8t3j20nw0nwdkh.jpg'],
+            urls: ['https://bureaux-site.oss-cn-shanghai.aliyuncs.com/gh_08b8e424a39e_860.jpg'],
         })
     },
 

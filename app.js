@@ -1,7 +1,7 @@
 //app.js
 
 var fundebug = require('./libs/fundebug.0.8.2.min.js')
-const scui = require('./utils/dist/sc-ui');
+const scui = require('./utils/scui/sc-ui');
 fundebug.init(
     {
         apikey: "5811e8c7dc9ee21a8380a27164f5d73c6eafbe574f6bdea8f89b7d1aba7c918f",

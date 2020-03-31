@@ -1,7 +1,7 @@
 /* pages/a/a.wxss */
 
 page {
-    background-image: url("https://ws1.sinaimg.cn/large/8e278454gy1fvia1aegvuj20v91la48r.jpg");
+    background-image: url("https://bureaux-site.oss-cn-shanghai.aliyuncs.com/IMG_A993CF7897A7-1.jpeg");
     background-size: 100% 100%;
 }
 
@@ -23,7 +23,7 @@ page {
     border-radius: 25rpx;
     -webkit-border-radius: 25rpx;
     -moz-border-radius: 25rpx;
-    box-shadow: 7rpx 7rpx 7rpx 7rpx #ddd;
+    box-shadow: 2rpx 2rpx 2rpx 2rpx #ccc;
     margin-top: 40rpx;
     margin-bottom: 30rpx;
 }

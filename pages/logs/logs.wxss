@@ -1,5 +1,5 @@
 page {
-    background-image: url("https://ws1.sinaimg.cn/large/8e278454gy1fur0mk768nj220j3kx13s.jpg");
+    background-image: url("https://bureaux-site.oss-cn-shanghai.aliyuncs.com/631022.jpg");
     background-size: 110% 100%;
     overflow-x:hidden;
 }
