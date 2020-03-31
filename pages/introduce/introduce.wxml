@@ -49,7 +49,7 @@
 
     <view class="g">
         <view class="g-1">Github源码:</view>
-        <a class="g-1">https://github.com/Bureaux-Tao/RecognizeDuck</a>
+        <a class="g-1">https://github.com/Bureaux-Tao/AIDuck</a>
         <view class="g-2">欢迎Pull Request,提Issus</view>
         <view class="g-3">将开源进行到底!</view>
         <view class="g-4">喜欢吗?喜欢的话可以点击识别二维码请开发者喝一瓶饮料</view>
